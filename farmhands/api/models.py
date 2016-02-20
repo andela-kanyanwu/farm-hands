@@ -18,7 +18,7 @@ class Plan(models.Model):
     farm_size = models.CharField(max_length=30, choices=FARM_SIZES)
     weather = models.CharField(max_length=200)
     crop_type = models.CharField(max_length=200)
-    budget = models.CharField(max_length=200)
+    budget = models.DecimalField(max_digits=8, decimal_places=2)
     duration = models.IntegerField(default=0)
     date_created = models.DateTimeField(
         auto_now_add=True, verbose_name='created')
@@ -44,4 +44,5 @@ class Schedule(models.Model):
 class UserProfile(models.Model):
     user = models.OneToOneField(User)
     google_id = models.CharField(max_length=200, null=True)
-    created_at = models.DateTimeField()
+    date_created = models.DateTimeField(
+        auto_now_add=True, verbose_name='created')
