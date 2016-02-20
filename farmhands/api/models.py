@@ -1,3 +1,47 @@
-from django.db import models
+"""
+Models for farmhands api
+"""
 
-# Create your models here.
+from django.db import models
+from django.contrib.auth.models import User
+
+
+class Plan (models.Model):
+
+    FARM_SIZES = (
+        ('S', 'Small'),
+        ('M', 'Medium'),
+        ('L', 'Large'),
+    )
+
+    name = models.CharField(max_length=200)
+    farm_size = models.CharField(max_length=30, choices=FARM_SIZES)
+    weather = models.CharField(max_length=200)
+    crop_type = models.CharField(max_length=200)
+    budget = models.CharField(max_length=200)
+    duration = models.IntegerField(default=0)
+    date_created = models.DateTimeField(
+        auto_now_add=True, verbose_name='created')
+    users = models.ManyToManyField(User)
+
+
+class Schedule (models.Model):
+
+    CYCLE_TYPE = (
+        ('DAILY', 'daily'),
+        ('BIWEEKLY', 'biweekly'),
+        ('MONTHLY', 'monthly'),
+        ('YEARLY', 'yearly'),
+    )
+
+    plan = models.ForeignKey(Plan, related_name='schedule')
+    start_time = models.DateTimeField()
+    end_time = models.DateTimeField()
+    cycle_type = models.CharField(max_length=30, choices=CYCLE_TYPE)
+    desc = models.CharField(max_length=200)
+
+
+class User (models.Model):
+    user = models.OneToOneField(User)
+    google_id = models.CharField(max_length=200, null=True)
+    created_at = models.DateTimeField()
