@@ -27,7 +27,8 @@ gulp.task('minify-css', function() {
   var opts = {comments:true,spare:true};
   gulp.src(['./ngclient/src/**/*.css', '!./ngclient/bower_components/**'])
     .pipe(minifyCSS(opts))
-    .pipe(gulp.dest('./ngclient/dist/'));
+    .pipe(gulp.dest('./ngclient/dist/'))
+    .pipe(connect.reload());
 });
 gulp.task('minify-js', function() {
   gulp.src(['./ngclient/**/*.js', '!./ngclient/bower_components/**'])
@@ -43,12 +44,20 @@ gulp.task('copy-bower-components', function () {
 });
 gulp.task('copy-html-files', function () {
   gulp.src(['./ngclient/src/**/*.html', './ngclient/src/*.html'])
-    .pipe(gulp.dest('./ngclient/dist/'));
+    .pipe(gulp.dest('./ngclient/dist/'))
+    .pipe(connect.reload());
 });
+
+gulp.task('watch', function(){
+  gulp.watch(['./ngclient/src/**/*.html', './ngclient/src/*.html'], ['copy-html-files']);
+  gulp.watch(['ngclient/src/js/main.js', 'ngclient/src/**/*.js'], ['browserify']);
+  gulp.watch(['./ngclient/src/**/*.css', '!./ngclient/bower_components/**'], ['minify-css']);
+})
 gulp.task('connect', function () {
   connect.server({
     root: 'ngclient/dist/',
-    port: 8888
+    port: 8888,
+    livereload: true
   });
 });
 gulp.task('connectDist', function () {
@@ -64,7 +73,8 @@ gulp.task('browserify', function() {
     debug: true
   }))
   .pipe(concat('bundled.js'))
-  .pipe(gulp.dest('./ngclient/dist/js'));
+  .pipe(gulp.dest('./ngclient/dist/js'))
+  .pipe(connect.reload());
 });
 gulp.task('browserifyDist', function() {
   gulp.src(['ngclient/src/js/main.js'])
@@ -87,6 +97,6 @@ gulp.task('browserifyDist', function() {
 // );
 
 // *** default task *** //
-gulp.task('default',['browserify','copy-html-files', 'minify-css', 'copy-bower-components', 'connect']);
+gulp.task('default',['browserify','copy-html-files', 'minify-css', 'copy-bower-components', 'connect', 'watch']);
 // *** build task *** //
 
