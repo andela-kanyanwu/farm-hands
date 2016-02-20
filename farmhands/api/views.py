@@ -6,6 +6,7 @@ from django.shortcuts import get_object_or_404
 
 from rest_framework.views import APIView
 from rest_framework.response import Response
+from rest_framework import status
 
 
 class PlanView(APIView):
@@ -84,3 +85,4 @@ class UserPlanDetailView(APIView):
         plan = Plan.objects.filter(users__id=user.id, pk=planid)
         serializer = PlanSerializer(plan)
         return Response(serializer.data)
+
