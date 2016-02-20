@@ -13,5 +13,4 @@ urlpatterns = [
         UserPlanView.as_view(), name='userplans'),
     url(r'^users/(?P<userid>[0-9]+)/plans/(?P<planid>[0-9]+)$',
         UserPlanDetailView.as_view(), name='userplan'),
-
 ]

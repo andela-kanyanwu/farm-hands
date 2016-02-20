@@ -6,6 +6,7 @@ from django.shortcuts import get_object_or_404
 
 from rest_framework.views import APIView
 from rest_framework.response import Response
+from rest_framework import status
 
 
 class PlanView(APIView):
@@ -77,10 +78,19 @@ class UserPlanDetailView(APIView):
         """
         Retrieve a plan belonging to the user
         """
-
         # check that the user exists
         user = get_object_or_404(User, pk=userid)
 
-        plan = Plan.objects.filter(users__id=user.id, pk=planid)
+        plan = Plan.objects.filter(users__id=user.id, pk=planid).get()
         serializer = PlanSerializer(plan)
         return Response(serializer.data)
+
+    def post(self, request, userid, planid):
+        """
+        Add a plan to the user's current plans
+        """
+        plan = get_object_or_404(Plan, pk=planid)
+        user = get_object_or_404(User, pk=userid)
+
+        plan.users.add(user)
+        return Response(status=status.HTTP_200_OK)
