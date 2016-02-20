@@ -10,6 +10,21 @@ var clean = require('gulp-clean');
 var browserify = require('gulp-browserify');
 var concat = require('gulp-concat');
 
+
+var less = require('gulp-less');
+var path = require('path');
+var lessInput = './ngclient/src/less/**/*.scss';
+var lessOutput = './ngclient/src/css';
+var lessOptions = {
+  paths: [ path.join(__dirname, 'less', 'includes') ],
+  plugins: [autoprefix, cleancss]
+};
+var LessPluginCleanCSS = require('less-plugin-clean-css'),
+    LessPluginAutoPrefix = require('less-plugin-autoprefix'),
+    cleancss = new LessPluginCleanCSS({ advanced: true }),
+    autoprefix = new LessPluginAutoPrefix({ browsers: ["last 2 versions"] });
+
+
 // tasks
 gulp.task('lint', function() {
   gulp.src(['./ngclient/src/**/*.js', '!./ngclient/bower_components/**'])
@@ -85,18 +100,22 @@ gulp.task('browserifyDist', function() {
   .pipe(concat('bundled.js'))
   .pipe(gulp.dest('./ngclient/dist/js'));
 });
-
-
-// // *** default task *** //
-// gulp.task('default',
-//   ['lint', 'browserify', 'connect']
-// );
-// // *** build task *** //
-// gulp.task('build',
-//   ['lint', 'minify-css', 'browserifyDist', 'copy-html-files', 'copy-bower-components', 'connectDist']
-// );
+gulp.task('less-compile', function () {
+  return gulp
+    .src(lessInput)
+    .pipe(less(lessOptions))
+    .pipe(gulp.dest(lessOutput));
+});
+gulp.task('watch', function() {
+  return gulp
+    .watch(lessInput, ['less-compile'])
+    .on('change', function(event) {
+      console.log('File ' + event.path + ' was ' + event.type + ', running tasks...');
+    });
+});
 
 // *** default task *** //
-gulp.task('default',['browserify','copy-html-files', 'minify-css', 'copy-bower-components', 'connect', 'watch']);
+
+gulp.task('default',['browserify','copy-html-files', 'minify-css', 'copy-bower-components', 'connect', 'less-compile', 'watch']);
 // *** build task *** //
 
