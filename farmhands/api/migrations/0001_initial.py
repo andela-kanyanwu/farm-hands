@@ -20,9 +20,10 @@ class Migration(migrations.Migration):
                 ('farm_size', models.CharField(max_length=30, choices=[(b'S', b'Small'), (b'M', b'Medium'), (b'L', b'Large')])),
                 ('weather', models.CharField(max_length=200)),
                 ('crop_type', models.CharField(max_length=200)),
-                ('budget', models.CharField(max_length=200)),
+                ('budget', models.DecimalField(max_digits=8, decimal_places=2)),
                 ('duration', models.IntegerField(default=0)),
                 ('date_created', models.DateTimeField(auto_now_add=True, verbose_name=b'created')),
+                ('users', models.ManyToManyField(to=settings.AUTH_USER_MODEL)),
             ],
         ),
         migrations.CreateModel(
@@ -37,17 +38,12 @@ class Migration(migrations.Migration):
             ],
         ),
         migrations.CreateModel(
-            name='User',
+            name='UserProfile',
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('google_id', models.CharField(max_length=200, null=True)),
-                ('created_at', models.DateTimeField()),
+                ('date_created', models.DateTimeField(auto_now_add=True, verbose_name=b'created')),
                 ('user', models.OneToOneField(to=settings.AUTH_USER_MODEL)),
             ],
-        ),
-        migrations.AddField(
-            model_name='plan',
-            name='users',
-            field=models.ManyToManyField(to=settings.AUTH_USER_MODEL),
         ),
     ]
