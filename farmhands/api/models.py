@@ -6,7 +6,7 @@ from django.db import models
 from django.contrib.auth.models import User
 
 
-class Plan (models.Model):
+class Plan(models.Model):
 
     FARM_SIZES = (
         ('S', 'Small'),
@@ -25,7 +25,7 @@ class Plan (models.Model):
     users = models.ManyToManyField(User)
 
 
-class Schedule (models.Model):
+class Schedule(models.Model):
 
     CYCLE_TYPE = (
         ('DAILY', 'daily'),
@@ -41,7 +41,7 @@ class Schedule (models.Model):
     desc = models.CharField(max_length=200)
 
 
-class User (models.Model):
+class UserProfile(models.Model):
     user = models.OneToOneField(User)
     google_id = models.CharField(max_length=200, null=True)
     created_at = models.DateTimeField()
