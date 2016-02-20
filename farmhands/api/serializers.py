@@ -9,10 +9,11 @@ from django.contrib.auth.models import User
 
 class UserSerializer(serializers.ModelSerializer):
     google_id = serializers.CharField(source='userprofile.google_id')
+    date_created = serializers.DateTimeField(source='userprofile.date_created')
 
     class Meta:
         model = User
-        fields = ('id', 'username', 'email', 'google_id', 'created_at')
+        fields = ('id', 'username', 'email', 'google_id', 'date_created')
 
 
 class PlanSerializer(serializers.ModelSerializer):
@@ -23,7 +24,7 @@ class PlanSerializer(serializers.ModelSerializer):
         model = Plan
         fields = (
             'name', 'farm_size', 'weather', 'crop_type', 'budget',
-            'duration', 'date_created', 'auto_now_add', 'users',
+            'duration', 'date_created', 'users',
             'schedule'
         )
 
