@@ -9,7 +9,6 @@ var minifyCSS = require('gulp-minify-css');
 var clean = require('gulp-clean');
 var browserify = require('gulp-browserify');
 var concat = require('gulp-concat');
-var runSequence = require('run-sequence');
 
 // tasks
 gulp.task('lint', function() {
