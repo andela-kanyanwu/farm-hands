@@ -13,25 +13,25 @@ var runSequence = require('run-sequence');
 
 // tasks
 gulp.task('lint', function() {
-  gulp.src(['./app/**/*.js', '!./app/bower_components/**'])
+  gulp.src(['./ngclient/src/**/*.js', '!./ngclient/bower_components/**'])
     .pipe(jshint())
     .pipe(jshint.reporter('default'))
     .pipe(jshint.reporter('fail'));
 });
 gulp.task('clean', function() {
-    gulp.src('./dist/*')
+    gulp.src('./ngclient/dist/*')
       .pipe(clean({force: true}));
-    gulp.src('./app/js/bundled.js')
+    gulp.src('./ngclient/dist/js/bundled.js')
       .pipe(clean({force: true}));
 });
 gulp.task('minify-css', function() {
   var opts = {comments:true,spare:true};
-  gulp.src(['./app/**/*.css', '!./app/bower_components/**'])
+  gulp.src(['./ngclient/src/**/*.css', '!./ngclient/bower_components/**'])
     .pipe(minifyCSS(opts))
-    .pipe(gulp.dest('./dist/'));
+    .pipe(gulp.dest('./ngclient/dist/'));
 });
 gulp.task('minify-js', function() {
-  gulp.src(['./app/**/*.js', '!./app/bower_components/**'])
+  gulp.src(['./ngclient/**/*.js', '!./ngclient/bower_components/**'])
     .pipe(uglify({
       // inSourceMap:
       // outSourceMap: "app.js.map"
@@ -39,42 +39,42 @@ gulp.task('minify-js', function() {
     .pipe(gulp.dest('./dist/'));
 });
 gulp.task('copy-bower-components', function () {
-  gulp.src('./app/bower_components/**')
-    .pipe(gulp.dest('dist/bower_components'));
+  gulp.src('./ngclient/src/bower_components/**')
+    .pipe(gulp.dest('./ngclient/dist/bower_components'));
 });
 gulp.task('copy-html-files', function () {
-  gulp.src('./app/**/*.html')
-    .pipe(gulp.dest('dist/'));
+  gulp.src(['./ngclient/src/**/*.html', './ngclient/src/*.html'])
+    .pipe(gulp.dest('./ngclient/dist/'));
 });
 gulp.task('connect', function () {
   connect.server({
-    root: 'app/',
+    root: 'ngclient/dist/',
     port: 8888
   });
 });
 gulp.task('connectDist', function () {
   connect.server({
-    root: 'dist/',
+    root: 'ngclient/dist/',
     port: 9999
   });
 });
 gulp.task('browserify', function() {
-  gulp.src(['app/js/main.js'])
+  gulp.src(['ngclient/src/js/main.js'])
   .pipe(browserify({
     insertGlobals: true,
     debug: true
   }))
   .pipe(concat('bundled.js'))
-  .pipe(gulp.dest('./app/js'));
+  .pipe(gulp.dest('./ngclient/dist/js'));
 });
 gulp.task('browserifyDist', function() {
-  gulp.src(['app/js/main.js'])
+  gulp.src(['ngclient/src/js/main.js'])
   .pipe(browserify({
     insertGlobals: true,
     debug: true
   }))
   .pipe(concat('bundled.js'))
-  .pipe(gulp.dest('./dist/js'));
+  .pipe(gulp.dest('./ngclient/dist/js'));
 });
 
 
@@ -88,16 +88,6 @@ gulp.task('browserifyDist', function() {
 // );
 
 // *** default task *** //
-gulp.task('default', function() {
-  runSequence(
-    ['clean'],
-    ['lint', 'browserify', 'connect']
-  );
-});
+gulp.task('default',['browserify','copy-html-files', 'minify-css', 'copy-bower-components', 'connect']);
 // *** build task *** //
-gulp.task('build', function() {
-  runSequence(
-    ['clean'],
-    ['lint', 'minify-css', 'browserifyDist', 'copy-html-files', 'copy-bower-components', 'connectDist']
-  );
-});
+

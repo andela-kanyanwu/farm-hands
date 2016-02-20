@@ -1,5 +1,8 @@
 env
 node_modules
+bower_components
+.DS_Store
+
 ## Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
