@@ -41,7 +41,7 @@ class Schedule (models.Model):
     desc = models.CharField(max_length=200)
 
 
-class User (models.Model):
+class UserProfile (models.Model):
     user = models.OneToOneField(User)
     google_id = models.CharField(max_length=200, null=True)
     created_at = models.DateTimeField()
