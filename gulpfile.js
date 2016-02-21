@@ -23,6 +23,8 @@ var lessOptions = {
   paths: [ path.join(__dirname, 'less', 'includes') ],
   plugins: [autoprefix, cleancss]
 };
+var imagemin = require('gulp-imagemin');
+var pngquant = require('imagemin-pngquant');
 
 // tasks
 gulp.task('lint', function() {
@@ -58,6 +60,14 @@ gulp.task('copy-bower-components', function () {
 });
 gulp.task('copy-img-files', function () {
   gulp.src(['./ngclient/src/img/*.*'])
+  .pipe(imagemin({
+      progressive: true,
+      svgoPlugins: [
+          {removeViewBox: false},
+          {cleanupIDs: false}
+      ],
+      use: [pngquant()]
+    }))
     .pipe(gulp.dest('./ngclient/dist/img'))
     .pipe(browserSync.reload({stream: true}));
 });
