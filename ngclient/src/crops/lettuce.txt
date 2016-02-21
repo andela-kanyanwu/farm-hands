@@ -1,0 +1,45 @@
+***Lettuce
+
+**Steps to begin growing lettuce
+
+1) Choose preferable lettuce type and purchase seeds.
+
+2) Choose a location with these properties
+- Part sun light
+- Warm(According to your region)
+- Moist loamy soil
+- Weed free
+- Rich and well manured
+
+3) Plant lettuce.
+- Plant seeds indoors in a pot with well tilled loamy soil for 4 to 6 weeks
+- Prepare the soil with manure 1 to 2 weeks before planting
+- Transplant lettuce outdoors
+- Fertilize 3 weeks after transplant
+- Plant the seeds one to two inches below the ground
+- Plant the seeds in rows at least 4 inches apart
+- Make sure soil is moist but well-drained
+- Sprinkle with water when any sign of dehydration occurs
+- Weed by hand
+
+4) Harvest the lettuce in due time.
+
+**Lettuce Specifics
+DAY 1 - PURCHASE LETTUCE SEEDS
+DAY 2 - PLANT IN A POT WITH WELL TILLED LOAMY SOIL INDOORS FOR 4 TO 6 WEEKS
+DAY 3 - WET SOIL(REPEAT EVERYDAY)
+DAY 10 - WEED SOIL(REPEAT EVERYWEEK)
+DAY 31 - TRANSPLANT LETTUCE OUTDOORS
+DAY 71 - HARVEST LETTUCE
+
+name = Lettuce
+
+farm_size = S
+
+weather = Sunny
+
+crop_type = Vegetable
+
+budget = 3.3$ per 0.45kg
+
+duration = 5 to 8 weeks

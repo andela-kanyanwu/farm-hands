@@ -1,0 +1,40 @@
+***Corn
+
+**Steps to begin growing corn
+
+1) Purchase preferable corn seeds.
+
+2) Choose a location with these properties
+- Full sun light
+- Warm(According to your region)
+- Warm soil temperature of at least 16 degrees
+- Weed free
+- Rich and well manured
+
+3) Plant the corn seed.
+- Prepare the soil with manure two to four weeks before planting
+- The soil should be well enriched with nitrogen such as soils that have just given off beans
+- Plant the seeds one to two inches below the ground
+- plant the seeds 24 to 32 inches apart
+- Plant in blocks and 3 a piece due to wind pollination for better chance at gemination
+- Water from the bottom to avoid wetting the pollen and rendering it invalid
+
+4) Harvest the corn in due time.
+
+**Corn Specifics
+DAY 1 - MANURE THE SOIL TWO WEEKS BEFORE PLANTING(at least)
+DAY 15 - PLANT THE CORN SEEDS TWO INCHES BELOW THE GROUND
+DAY 16 - WATER A BIT(REPEAT EVERYDAY)
+DAY 36 - HARVEST THE CORN IN THREE WEEKS(WHEN IT DEVELOPS TASSLES AT THE TOP OF THE EAR)
+
+name = Corn
+
+farm_size = S
+
+weather = Sunny
+
+crop_type = Grain
+
+budget = 1$ per 2kg
+
+duration = 5 weeks and 1 days

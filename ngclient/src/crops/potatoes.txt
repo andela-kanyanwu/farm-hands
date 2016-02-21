@@ -1,0 +1,48 @@
+***Rice
+
+**Steps to growing potatoes.
+
+1) Purchase preferable potato tubers.
+
+2) Choose a location with these properties.
+- loamy soil
+- Full sun light
+- Warm temperature
+
+3) Plant the potatoes.
+- Dig Shallow trenches 3 feet apart
+- Cut tubers in quarters(Split into 4)
+- Place in trench apart from each other down the row
+- Cover them with 3 to 4 inches of loose, seed-free straw
+- Create sand beds about the potatoes
+- Add more soil as the potato grows
+- Keep moist always
+- Apply organic fertilizer
+- Control weeds at least once in a month
+
+4) Harvest the potatoes in due time.
+- Dig each hill by hand
+- Discard the bad potatoes after judgement
+
+**Potato Specifics
+DAY 1 - SLICE POTATOES
+DAY 2 - CREATE SHALLOW TRENCHES 3 FEET APART
+DAY 3 - PLACE POTATOES IN THE TRENCHES
+DAY 4 - COVER THE POTATOES WITH HAY
+DAY 5 - BUILD SAND BEDS ABOUT SMALL GROUPS OF POTATOES
+DAY 6 - ADD SOIL TO SAND BEDS(REPEAT AS POTATO GROWS)
+DAY 7 - APPLY ORGANIC FERTILIZERS(REPEAT EACH WEEK)
+DAY 8 - WEED THE TRENCH(REPEAT EACH MONTH)
+
+name = Potato
+
+farm_size = S
+
+weather = Warm
+
+crop_type = Tuberous
+
+budget = 1$ per 0.45kg
+
+duration = 18 weeks
+

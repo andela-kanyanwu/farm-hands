@@ -59,6 +59,7 @@ class Plan(models.Model):
     )
 
     name = models.CharField(max_length=200)
+    description = models.TextField(blank=True)
     crop = models.ForeignKey(Crop, related_name='plan')
     farm_size = models.CharField(max_length=30, choices=FARM_SIZES)
     budget = models.DecimalField(max_digits=8, decimal_places=2)
