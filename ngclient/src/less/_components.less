@@ -3,3 +3,57 @@
     background-position: center; 
     background-size: cover;
 }
+
+.fh-tile {
+    padding: @padding_tile;
+
+    a {
+        text-decoration: none;
+        color: @color_bodyText;
+    }
+
+    .background {
+        position: absolute;
+        left: @padding_tile;
+        right: @padding_tile;
+        top: @padding_tile;
+        bottom: @padding_tile;
+        overflow: hidden;
+
+        .overlay {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: @color_tileFill;
+            opacity: @opacity_overlay;
+        }
+
+        .bg-img {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    .content {
+        position: relative;
+        padding: @padding_tileContent;
+        overflow: hidden;
+        color: @color_tileText;
+        text-align: center;
+
+        .subtitle {
+            font-weight: @fontWeight_tileSubTitle;
+        }
+
+        .fc-action-button {
+            margin-top: 25px;
+        }
+    }
+
+    &.alt {
+        .background .overlay {
+            opacity: @opacity_overlayAlt;
+        }
+    }
+}

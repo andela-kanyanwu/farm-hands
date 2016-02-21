@@ -2,16 +2,16 @@
 // palette:
 //---------------------------------------------------------------
 
-@fc_color_white:                                    #FFFFFF; // white
-@fc_color_black:                                    #000000; // black
-@fc_color_grey:                                     #8C8C8C; // grey
-@fc_color_dark_grey:                                #252222; // very dark grey
-@fc_color_magenta:                                  #FF0768; // magenta
-@fc_color_secondary_magenta:                        #DC095B; // secondary magenta
-@fc_color_purple:                                   #B30FC6; // purple
-@fc_color_secondary_purple:                         #81298B; // secondary purple
-@fc_color_light_grey:                               #909090; // light grey
-@fc_color_trans_black:                              rgba(0,0,0,0.3); // translucent black
+@fh_color_white:                                    #FFFFFF; // white
+@fh_color_black:                                    #000000; // black
+@fh_color_grey:                                     #8C8C8C; // grey
+@fh_color_dark_grey:                                #252222; // very dark grey
+@fh_color_magenta:                                  #FF0768; // magenta
+@fh_color_secondary_magenta:                        #DC095B; // secondary magenta
+@fh_color_purple:                                   #B30FC6; // purple
+@fh_color_secondary_purple:                         #81298B; // secondary purple
+@fh_color_light_grey:                               #efefef; // light grey
+@fh_color_trans_black:                              rgba(0,0,0,0.3); // translucent black
 
 
 
@@ -19,66 +19,67 @@
 // colors:
 //---------------------------------------------------------------
 
-@color_bodyText:                                    @fc_color_grey;
+@color_bodyText:                                    @fh_color_grey;
+@color_bodyAlt:                                     @fh_color_light_grey;
 
-@color_buttonText:                                  @fc_color_white;
-@color_buttonFill:                                  @fc_color_magenta;
-@color_buttonStroke:                                @fc_color_magenta;
-@color_buttonHoverText:                             @fc_color_white;
-@color_buttonHoverFill:                             @fc_color_magenta;
-@color_buttonHoverStroke:                           @fc_color_magenta;
-@color_buttonFocusText:                             @fc_color_white;
-@color_buttonFocusFill:                             @fc_color_magenta;
-@color_buttonFocusStroke:                           @fc_color_magenta;
-@color_closeButtonText:                             @fc_color_black;
-@color_closeButtonHoverText:                        @fc_color_magenta;
+@color_buttonText:                                  @fh_color_white;
+@color_buttonFill:                                  @fh_color_magenta;
+@color_buttonStroke:                                @fh_color_magenta;
+@color_buttonHoverText:                             @fh_color_white;
+@color_buttonHoverFill:                             @fh_color_magenta;
+@color_buttonHoverStroke:                           @fh_color_magenta;
+@color_buttonFocusText:                             @fh_color_white;
+@color_buttonFocusFill:                             @fh_color_magenta;
+@color_buttonFocusStroke:                           @fh_color_magenta;
+@color_closeButtonText:                             @fh_color_black;
+@color_closeButtonHoverText:                        @fh_color_magenta;
 
-@color_inputBoxText:                                @fc_color_white;
-@color_inputBoxFill:                                @fc_color_black;
-@color_inputBoxStroke:                              @fc_color_white;
-@color_inputBoxIcon:                                @fc_color_white;
+@color_inputBoxText:                                @fh_color_white;
+@color_inputBoxFill:                                @fh_color_black;
+@color_inputBoxStroke:                              @fh_color_white;
+@color_inputBoxIcon:                                @fh_color_white;
 
-@color_pickupTimeFill:                              @fc_color_magenta;
-@color_dropoffTimeFill:                             @fc_color_purple;
+@color_pickupTimeFill:                              @fh_color_magenta;
+@color_dropoffTimeFill:                             @fh_color_purple;
 
-@color_tileLink:                                    @fc_color_magenta;
-@color_tileFill:                                    @fc_color_black;
-@color_tileTitle:                                   @fc_color_black;
-@color_tileText:                                    @fc_color_white;
+@color_tileLink:                                    @fh_color_magenta;
+@color_tileFill:                                    @fh_color_black;
+@color_tileTitle:                                   @fh_color_black;
+@color_tileText:                                    @fh_color_white;
 
-@color_navText:                                     @fc_color_grey;
-@color_navTextAlt:                                  @fc_color_magenta;
-@color_navbarFill:                                  @fc_color_white;
-@color_navbarFillAlt:                               @fc_color_white;
+@color_navText:                                     @fh_color_grey;
+@color_navTextAlt:                                  @fh_color_magenta;
+@color_navbarFill:                                  @fh_color_white;
+@color_navbarFillAlt:                               @fh_color_white;
 
-@color_footerFill:                                  @fc_color_dark_grey;
-@color_footerLink:                                  @fc_color_grey;
-@color_footerLinkAlt:                               @fc_color_magenta;
+@color_footerFill:                                  @fh_color_dark_grey;
+@color_footerLink:                                  @fh_color_grey;
+@color_footerLinkAlt:                               @fh_color_magenta;
 
-@color_progressBarFill:                             @fc_color_light_grey;
-@color_progressBarProgress:                         @fc_color_magenta;
+@color_progressBarFill:                             @fh_color_light_grey;
+@color_progressBarProgress:                         @fh_color_magenta;
 
-@color_notifBarColor1:                              @fc_color_magenta;
-@color_notifBarColor2:                              @fc_color_purple;
+@color_notifBarColor1:                              @fh_color_magenta;
+@color_notifBarColor2:                              @fh_color_purple;
 
-@color_flowHeaderFill:                              @fc_color_white;
-@color_flowHeaderTitle:                             @fc_color_magenta;
-@color_flowFooterFill:                              @fc_color_magenta;
-@color_flowFooterText:                              @fc_color_white;
+@color_flowHeaderFill:                              @fh_color_white;
+@color_flowHeaderTitle:                             @fh_color_magenta;
+@color_flowFooterFill:                              @fh_color_magenta;
+@color_flowFooterText:                              @fh_color_white;
 
-@color_reservationFlow:                             @fc_color_magenta;
-@color_sharingFlow:                                 @fc_color_purple;
+@color_reservationFlow:                             @fh_color_magenta;
+@color_sharingFlow:                                 @fh_color_purple;
 
-@color_directiveBarFill:                            @fc_color_black;
-@color_directiveBarText:                            @fc_color_white;
-@color_directiveBarStroke:                        @fc_color_white;
-@color_directive_pickup:                            @fc_color_magenta;
-@color_directive_dropoff:                           @fc_color_purple;
+@color_directiveBarFill:                            @fh_color_black;
+@color_directiveBarText:                            @fh_color_white;
+@color_directiveBarStroke:                        	@fh_color_white;
+@color_directive_pickup:                            @fh_color_magenta;
+@color_directive_dropoff:                           @fh_color_purple;
 
-@color_dividerStroke:                               @fc_color_light_grey;
+@color_dividerStroke:                               @fh_color_light_grey;
 
-@color_reservationDate:                             @fc_color_white;
-@color_calendarText:                                @fc_color_white;
+@color_reservationDate:                             @fh_color_white;
+@color_calendarText:                                @fh_color_white;
 
 
 
@@ -95,7 +96,7 @@
 //---------------------------------------------------------------
 
 @fontWeight_base:                                   300;
-@fontWeight_baseMedium:                           300;
+@fontWeight_baseMedium:                           	300;
 @fontWeight_baseResponsive:                         300;
 
 @fontWeight_smallText:                              500;
@@ -105,8 +106,6 @@
 @fontWeight_tileSubTitle:                           200;
 @fontWeight_inputBox:                               500;
 @fontWeight_buttonText:                             500;
-@fontWeight_flowHeaderTitle:                        200;
-@fontWeight_flowHeaderText:                         200;
 @fontWeight_calendarHeader:                         500;
 
 
@@ -215,12 +214,3 @@
 //---------------------------------------------------------------
 // images:
 //---------------------------------------------------------------
-
-@fc-home-community-img:                             url('../img/home-community.jpg');
-@fc-home-locations-img:                             url('../img/home-locations.jpg');
-@fc-home-reserve-img:                               url('../img/home-reserve.jpg');
-@fc-home-rules-img:                                 url('../img/home-rules.jpg');
-@fc-home-share-img:                                 url('../img/home-share.jpg');
-@fc-home-works-img:                                 url('../img/home-works.jpg');
-@fc-reservation-time-select-img:                    url('../img/reservation-time-select.jpg');
-@fc-reservation-calendar-img:                       url('../img/reservation-calendar.jpg');
