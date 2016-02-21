@@ -1,6 +1,14 @@
 from django.contrib import admin
 
-from .models import Plan, Schedule, UserProfile
+from .models import Crop, Plan, Schedule, UserProfile
+
+
+class CropAdmin(admin.ModelAdmin):
+    fieldsets = [
+        (None, {'fields': ['name']}),
+        ('Crop Information', {'fields': [
+         'climate', 'crop_categories', 'life_cycle', 'price', 'desc']}),
+    ]
 
 
 class ScheduleInline(admin.TabularInline):
@@ -11,8 +19,7 @@ class PlanAdmin(admin.ModelAdmin):
     fieldsets = [
         (None, {'fields': ['name']}),
         ('Plan Information', {'fields': [
-         'farm_size', 'weather',
-         'crop_type', 'budget', 'duration']}),
+         'farm_size', 'budget', 'duration']}),
         ('Users', {'fields': ['users']}),
     ]
 
@@ -20,3 +27,4 @@ class PlanAdmin(admin.ModelAdmin):
 
 admin.site.register(Plan, PlanAdmin)
 admin.site.register(UserProfile)
+admin.site.register(Crop, CropAdmin)

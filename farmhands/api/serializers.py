@@ -3,7 +3,7 @@ Serializers for farmhands
 """
 
 from rest_framework import serializers
-from api.models import Plan, Schedule
+from api.models import Plan, Schedule, Crop
 from django.contrib.auth.models import User
 
 
@@ -16,16 +16,34 @@ class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = ('username', 'password', 'email', 'google_id', 'date_created')
+        extra_kwargs = {'password': {'write_only': True}}
+
+
+class CropSerializer(serializers.ModelSerializer):
+    plan = serializers.ReadOnlyField(source='plan.crop')
+
+    class Meta:
+        model = Crop
+        fields = (
+            'name', 'climate', 'crop_categories', 'life_cycle',
+            'price', 'desc', 'date_created',
+            'plan'
+        )
 
 
 class PlanSerializer(serializers.ModelSerializer):
     users = UserSerializer(many=True)
     schedule = serializers.ReadOnlyField(source='schedule.plan')
+    crop = serializers.SlugRelatedField(
+        many=True,
+        read_only=True,
+        slug_field='name'
+    )
 
     class Meta:
         model = Plan
         fields = (
-            'name', 'farm_size', 'weather', 'crop_type', 'budget',
+            'name', 'farm_size', 'crop', 'budget',
             'duration', 'date_created', 'users',
             'schedule'
         )
