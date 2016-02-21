@@ -8,14 +8,14 @@
 
   var mainCtrl = require('./controllers/mainctrl');
   var planCtrl = require('./controllers/planctrl');
-  var cropsService = require('./services/crops');
+  var planService = require('./services/plans');
 
   angular.module('FarmHandsApp', ['ui.router', 'ngAnimate'])
 
   .config(configure)
   .controller('MainController', mainCtrl)
   .controller('PlanController', planCtrl)
-  .factory('Crops', cropsService);
+  .service('PlanService', planService);
 
   configure.$inject = ['$locationProvider', '$urlRouterProvider', '$stateProvider'];
     function configure($locationProvider, $urlRouterProvider, $stateProvider) {
@@ -24,6 +24,15 @@
       $stateProvider
         .state("index", {
           url: '/',
+          resolve:{
+            plans: ['PlanService', function(PlanService){
+              return PlanService.all()
+                .then(function(resp) {
+                  return resp || 'error';
+              });
+
+            }]
+          },
           templateUrl: "./partials/home.html",
           controller: "MainController",
           controllerAs: "main"
@@ -42,10 +51,8 @@
         })
         .state("auth", {
           abstract: true,
-          url:'/auth',
-          controller: "MainController",
-          controllerAs: "main",
-          template: '<ui-view/>'
+          url:'/auth'
+          // template: '<ui-view/>'
         })
         .state("auth.login", {
           url: '/login',
