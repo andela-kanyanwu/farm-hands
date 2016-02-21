@@ -1,4 +1,4 @@
-(function () {
+(function() {
 
   'use strict';
   require('angular');
@@ -8,12 +8,14 @@
 
   var mainCtrl = require('./controllers/mainctrl');
   var planCtrl = require('./controllers/planctrl');
+  var cropsService = require('./services/crops');
 
   angular.module('FarmHandsApp', ['ui.router', 'ngAnimate'])
 
   .config(configure)
   .controller('MainController', mainCtrl)
-  .controller('PlanController', planCtrl);
+  .controller('PlanController', planCtrl)
+  .factory('Crops', cropsService);
 
   configure.$inject = ['$locationProvider', '$urlRouterProvider', '$stateProvider'];
     function configure($locationProvider, $urlRouterProvider, $stateProvider) {
@@ -40,16 +42,18 @@
         })
         .state("auth", {
           abstract: true,
+          url:'/auth',
           controller: "MainController",
-          controllerAs: "main"
+          controllerAs: "main",
+          template: '<ui-view/>'
         })
-        .state("auth.login",{
-          url: '/auth/login',
-          templateUrl: "./partials/auth.html"
+        .state("auth.login", {
+          url: '/login',
+          templateUrl: "./partials/login.html"
         })
-        .state("auth.signup",{
-          url: '/auth/signup',
-          templateUrl: "./partials/auth.html"
+        .state("auth.signup", {
+          url: '/signup',
+          templateUrl: "./partials/signup.html"
         });
       $urlRouterProvider.otherwise('/');
     }
