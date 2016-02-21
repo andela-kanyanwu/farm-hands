@@ -36,6 +36,8 @@ NEXT 60 DAYS - FRUITS START APPEARING AFTER TRANSPLANT.
 
 name = Tomato
 
+description = The tomato is the edible, often red berry-type fruit of the nightshade Solanum lycopersicum, commonly known as a tomato plant.
+
 farm_size = S
 
 weather = Sunny

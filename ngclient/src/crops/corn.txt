@@ -1,8 +1,8 @@
-***Corn
+***Maize
 
-**Steps to begin growing corn
+**Steps to begin growing maize
 
-1) Purchase preferable corn seeds.
+1) Purchase preferable maize seeds.
 
 2) Choose a location with these properties
 - Full sun light
@@ -11,7 +11,7 @@
 - Weed free
 - Rich and well manured
 
-3) Plant the corn seed.
+3) Plant the Maize seed.
 - Prepare the soil with manure two to four weeks before planting
 - The soil should be well enriched with nitrogen such as soils that have just given off beans
 - Plant the seeds one to two inches below the ground
@@ -19,15 +19,17 @@
 - Plant in blocks and 3 a piece due to wind pollination for better chance at gemination
 - Water from the bottom to avoid wetting the pollen and rendering it invalid
 
-4) Harvest the corn in due time.
+4) Harvest the Maize in due time.
 
-**Corn Specifics
+**Maize Specifics
 DAY 1 - MANURE THE SOIL TWO WEEKS BEFORE PLANTING(at least)
-DAY 15 - PLANT THE CORN SEEDS TWO INCHES BELOW THE GROUND
+DAY 15 - PLANT THE MAIZE SEEDS TWO INCHES BELOW THE GROUND
 DAY 16 - WATER A BIT(REPEAT EVERYDAY)
-DAY 36 - HARVEST THE CORN IN THREE WEEKS(WHEN IT DEVELOPS TASSLES AT THE TOP OF THE EAR)
+DAY 36 - HARVEST THE MAIZE IN THREE WEEKS(WHEN IT DEVELOPS TASSLES AT THE TOP OF THE EAR)
 
-name = Corn
+name = Maize
+
+description = Maize, commonly known as corn, is a large grain plant domesticated by indigenous peoples in Mexico in prehistoric times about 10,000 years ago.
 
 farm_size = S
 
