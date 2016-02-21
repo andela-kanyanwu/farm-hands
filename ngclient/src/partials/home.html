@@ -13,8 +13,8 @@
           <h1 class="title">Farms matter, farm smarter</h1>
           <p class="subtitle">Starting and running your own farm project just got easier...
           and a whole lot smarter!</p>
-        <div class="call-to-action">
-          <button type="button" class="btn btn-success btn-lg">GET STARTED</button></div>
+          <div class="call-to-action">
+            <button type="button" class="btn btn-success btn-lg">GET STARTED</button></div>
         </div>
       </a>
     </div>
@@ -23,16 +23,20 @@
 
   <div class="row plan-list-header">
     <div class="col-xs-12">
-      <h1 class="title">Find Your Farm Plan</h1>
+      <h1 class="title">Find your Farm Plan</h1>
       <p class="subtitle">Explore our extensive collection of simple-to-follow farm project plans, start one that best suites your needs.</p>
     </div>
+  </div>
 
-    <div class="row">
 
-      <div class="col-md-4 fh-tile">
+  <!-- plan-list-header -->
+
+  <div class="row plan-list">
+
+      <div class="col-sm-6 col-md-4 fh-tile">
           <a href="#">
               <div class="background">
-                  <div id="share-bg" class="bg-img fh-bg-responsive"></div>
+                  <div id="share-bg" class="bg-img fh-bg-responsive" style="background-image: url('./img/maize.jpg')"></div>
                   <div class="overlay"></div>
               </div>
               <div class="content">
@@ -42,7 +46,7 @@
           </a>
       </div>
 
-      <div class="col-md-4 fh-tile">
+      <div class="col-sm-6 col-md-4 fh-tile">
           <a href="{% url 'rental:reservation_airport_select' %}">
               <div class="background">
                   <div id="reserve-bg" class="bg-img fh-bg-responsive"></div>
@@ -55,7 +59,7 @@
           </a>
       </div>
 
-      <div class="col-md-4 fh-tile">
+      <div class="col-sm-6 col-md-4 fh-tile">
           <a href="#">
               <div class="background">
                   <div id="share-bg" class="bg-img fh-bg-responsive"></div>
@@ -68,7 +72,7 @@
           </a>
       </div>
 
-      <div class="col-md-4 fh-tile">
+      <div class="col-sm-6 col-md-4 fh-tile">
           <a href="#">
               <div class="background">
                   <div id="share-bg" class="bg-img fh-bg-responsive"></div>
@@ -81,7 +85,7 @@
           </a>
       </div>
 
-      <div class="col-md-4 fh-tile">
+      <div class="col-sm-6 col-md-4 fh-tile">
           <a href="{% url 'rental:reservation_airport_select' %}">
               <div class="background">
                   <div id="reserve-bg" class="bg-img fh-bg-responsive"></div>
@@ -94,7 +98,7 @@
           </a>
       </div>
 
-      <div class="col-md-4 fh-tile">
+      <div class="col-sm-6 col-md-4 fh-tile">
           <a href="#">
               <div class="background">
                   <div id="share-bg" class="bg-img fc-bg-responsive"></div>
@@ -106,14 +110,7 @@
               </div>
           </a>
       </div>
-    </div>
-  </div>
-  <!-- plan-list-header -->
 
-  <div class="row plan-list">
-     <div class="col-xs-12">
-
-     </div>
   </div>
   <!-- plan-list -->
 
