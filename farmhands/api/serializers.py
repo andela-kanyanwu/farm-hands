@@ -8,12 +8,14 @@ from django.contrib.auth.models import User
 
 
 class UserSerializer(serializers.ModelSerializer):
-    google_id = serializers.CharField(source='userprofile.google_id')
-    date_created = serializers.DateTimeField(source='userprofile.date_created')
+    google_id = serializers.CharField(
+        source='userprofile.google_id', required=False)
+    date_created = serializers.DateTimeField(
+        source='userprofile.date_created', required=False)
 
     class Meta:
         model = User
-        fields = ('id', 'username', 'email', 'google_id', 'date_created')
+        fields = ('username', 'password', 'email', 'google_id', 'date_created')
 
 
 class PlanSerializer(serializers.ModelSerializer):
