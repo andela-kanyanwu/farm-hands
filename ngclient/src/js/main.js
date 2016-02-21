@@ -24,8 +24,13 @@
         .otherwise({
            redirectTo: '/'
         })
-        .when("/auth", {
-          templateUrl: "./partials/auth.html",
+        .when("/signup", {
+          templateUrl: "./partials/signup.html",
+          controller: "MainController",
+          controllerAs: "main"
+        })
+        .when("/login", {
+          templateUrl: "./partials/login.html",
           controller: "MainController",
           controllerAs: "main"
         });
