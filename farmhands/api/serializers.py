@@ -16,6 +16,7 @@ class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = ('username', 'password', 'email', 'google_id', 'date_created')
+        extra_kwargs = {'password': {'write_only': True}}
 
 
 class PlanSerializer(serializers.ModelSerializer):

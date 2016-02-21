@@ -5,6 +5,8 @@ Models for farmhands api
 from django.db import models
 from django.contrib.auth.models import User
 
+class Crop(models.Model):
+    pass
 
 class Plan(models.Model):
 

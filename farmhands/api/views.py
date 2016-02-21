@@ -126,12 +126,7 @@ class LoginView(APIView):
             if auth_user is not None:
                 if auth_user.is_active:
                     login(request, auth_user)
-                    return_data = {
-                        'username': serializer.data['username'],
-                        'email': serializer.data['email'],
-                        'google_id': serializer.data['google_id']
-                    }
-                    return Response(return_data)
+                    return Response(serializer.data)
             else:
                 return Response(
                     serializer.errors,
@@ -175,11 +170,7 @@ class RegisterView(APIView):
                 password=request.data['password']
             )
             login(request, auth_user)
-            return_data = {
-                'username': serializer.data['username'],
-                'email': serializer.data['email'],
-            }
-            return Response(return_data)
+            return Response(serializer.data)
         else:
             return Response(
                 serializer.errors,
