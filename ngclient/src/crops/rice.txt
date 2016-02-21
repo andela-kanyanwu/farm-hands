@@ -1,0 +1,46 @@
+***Rice
+
+**Steps to begin rice farming.
+
+1) Purchase preferable rice seeds.
+
+2) Choose a location with these properties.
+- Swampy region
+- Slightly acidic clay soil
+- Full sun light
+- Warm temperature of 21 degrees at least
+
+3)Plant the rice seeds.
+- Soak the seeds in water to prep them for planting
+- They should be soaked for at least 12 hours and at most 32 hours
+- Plant seeds in rows for ease during wetting and weeding
+- Build small trenches around a group of rice plants
+- Make sure soil is filled with water always
+- Apply organic fertilizer
+- Control weeds at least once in a month
+
+4) Harvest the rice in due time.
+
+**Rice Specifics
+DAY 1 - SOAK SEEDS FOR AT LEAST 12 HOURS
+DAY 2 - PLANT SEEDS IN ROWS
+DAY 3 - BUILD LITTLE TRENCHES AROUND SMALL RICE GROUPS
+DAY 4 - WET THE RICE PLANTS(REPEAT EVERYDAY)
+DAY 6 - APPLY ORGANIC FERTILIZERS(REPEAT EACH WEEK)
+DAY 5 - WEED THE LAND(REPEAT EACH MONTH)
+DURATION - RANGE OF THREE TO FOUR MONTHS(THE RICE PLANTS WILL BE AT LEAST 17 INCHES IN HEIGHT)
+DAY 120 - DRY OUT WATER(STOP WETTING PLANTS FOR TWO WEEKS)
+DAY 144 - HARVEST RICE
+
+name = Rice
+
+farm_size = S
+
+weather = Humid
+
+crop_type = Grain
+
+budget = 38$ per 50kg
+
+duration = 20 weeks and 4 days
+

@@ -1,0 +1,48 @@
+***Tomatoes
+
+**Steps to begin growing tomato
+
+1)Dry your tomato seeds from a ripe tomato
+- Cut open the ripe tomato and extract the seeds
+- Place them in a container
+- Dry them up in sunlight afterwards
+
+2)Get them ready for planting
+- Stir the container daily until a white mold forms over the seeds
+- A white mold forms over the seeds when dried after two to three days
+- Remove the mold
+- Pour water into the container and filter the seeds from the liquid
+- Allow the seeds to dry for a week 
+
+3)Plant the seeds
+- Place the seeds in the soil in a warm temperature of at least 21 degrees
+- Water the soil daily
+- Fertilize the soil often
+
+4) Harvest the tomatoes in due time.
+
+**Tomato Specifics
+DAY 1 - CUT OPEN A RIPE TOMATO
+DAY 1 - EXTRACT AND PLACE THE SEEDS IN A CONTAINER
+DAY 2 - DRY THEM IN A CONTAINER(3 DAYS)
+DAY 5 - STIR THE SEEDS UNTIL A WHITE MOLD EMERGES(3 DAYS)
+DAY 8 - REMOVE THE MOLD, POUR WATER INTO THE CONTAINER AND FILTER THE SEEDS FROM THE LIQUID
+DAY 8 - DRY THE SEEDS FOR A WEEK
+DAY 15 - TEMPORARILY PLANT IN A POT WITH SAND KEEP IN A COOL PLACE FOR 6 TO 8 WEEKS AND WAIT FOR PLANT GERMINA
+
+NEXT DAY - TRANSFER PLANTS OUTDOORS AND TRANSPLANT INTO SOIL
+NEXT DAY - WATER PLANTS(REPEAT EVERYDAY)
+NEXT DAY - FERTILIZE PLANTS(REPEAT WEEKLY)
+NEXT 60 DAYS - FRUITS START APPEARING AFTER TRANSPLANT.
+
+name = Tomato
+
+farm_size = S
+
+weather = Sunny
+
+crop_type = Seed
+
+budget = 1$ per 2kg
+
+duration = 15 weeks and 4 days
