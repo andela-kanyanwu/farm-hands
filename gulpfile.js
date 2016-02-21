@@ -2,14 +2,14 @@
 var gulp = require('gulp');
 
 // plugins
-var connect = require('gulp-connect');
 var jshint = require('gulp-jshint');
 var uglify = require('gulp-uglify');
 var minifyCSS = require('gulp-minify-css');
 var clean = require('gulp-clean');
+var browserSync = require('browser-sync');
 var browserify = require('gulp-browserify');
+var historyApiFallback = require('connect-history-api-fallback');
 var concat = require('gulp-concat');
-
 
 var less = require('gulp-less');
 var path = require('path');
@@ -42,7 +42,7 @@ gulp.task('minify-css', function() {
   gulp.src(['./ngclient/src/**/*.css', '!./ngclient/bower_components/**'])
     .pipe(minifyCSS(opts))
     .pipe(gulp.dest('./ngclient/dist/'))
-    .pipe(connect.reload());
+    .pipe(browserSync.reload({stream: true}));
 });
 gulp.task('minify-js', function() {
   gulp.src(['./ngclient/**/*.js', '!./ngclient/bower_components/**'])
@@ -59,12 +59,12 @@ gulp.task('copy-bower-components', function () {
 gulp.task('copy-img-files', function () {
   gulp.src(['./ngclient/src/img/*.*'])
     .pipe(gulp.dest('./ngclient/dist/img'))
-    .pipe(connect.reload());
+    .pipe(browserSync.reload({stream: true}));
 });
 gulp.task('copy-html-files', function () {
   gulp.src(['./ngclient/src/**/*.html', './ngclient/src/*.html'])
     .pipe(gulp.dest('./ngclient/dist/'))
-    .pipe(connect.reload());
+    .pipe(browserSync.reload({stream: true}));
 });
 gulp.task('watch', function(){
   gulp.watch(['./ngclient/src/**/*.html', './ngclient/src/*.html'], ['copy-html-files']);
@@ -74,18 +74,24 @@ gulp.task('watch', function(){
   gulp.watch('./ngclient/src/less/*.less', ['less-compile']);
 })
 gulp.task('connect', function () {
-  connect.server({
-    root: 'ngclient/dist/',
-    port: 8888,
-    livereload: true
-  });
+  browserSync({
+      server: {
+        baseDir: './ngclient/dist',
+        // This allows for consistent instance of angular app route on direct visit of a state
+        // This issue was well explained on the link below.
+        // https://github.com/BrowserSync/browser-sync/issues/204#issuecomment-60410751
+        middleware: [ historyApiFallback() ]
+      },
+
+      port: 5555
+    });
 });
-gulp.task('connectDist', function () {
-  connect.server({
-    root: 'ngclient/dist/',
-    port: 9999
-  });
-});
+// gulp.task('connectDist', function () {
+//   connect.server({
+//     root: 'ngclient/dist/',
+//     port: 9999
+//   });
+// });
 gulp.task('browserify', function() {
   gulp.src(['ngclient/src/js/main.js'])
   .pipe(browserify({
@@ -94,7 +100,7 @@ gulp.task('browserify', function() {
   }))
   .pipe(concat('bundled.js'))
   .pipe(gulp.dest('./ngclient/dist/js'))
-  .pipe(connect.reload());
+  .pipe(browserSync.reload({stream: true}));
 });
 gulp.task('browserifyDist', function() {
   gulp.src(['ngclient/src/js/main.js'])
@@ -110,7 +116,7 @@ gulp.task('less-compile', function () {
     .src(lessInput)
     .pipe(less(lessOptions))
     .pipe(gulp.dest(lessOutput))
-    .pipe(connect.reload());
+    .pipe(browserSync.reload({stream: true}));
 });
 
 // *** default task *** //

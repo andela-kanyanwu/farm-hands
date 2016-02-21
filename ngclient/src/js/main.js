@@ -4,48 +4,54 @@
   require('angular');
   require('angular-route');
   require('angular-animate');
+  require('angular-ui-router');
+
   var mainCtrl = require('./controllers/mainctrl');
   var planCtrl = require('./controllers/planctrl');
 
-  angular.module('FarmHandsApp', ['ngRoute', 'ngAnimate'])
+  angular.module('FarmHandsApp', ['ui.router', 'ngAnimate'])
 
   .config(configure)
   .controller('MainController', mainCtrl)
   .controller('PlanController', planCtrl);
 
-  configure.$inject = ['$locationProvider', '$routeProvider'];
-    function configure($locationProvider, $routeProvider) {
-      $locationProvider.hashPrefix('!');
+  configure.$inject = ['$locationProvider', '$urlRouterProvider', '$stateProvider'];
+    function configure($locationProvider, $urlRouterProvider, $stateProvider) {
+      $locationProvider.html5Mode(true).hashPrefix('!');
       // routes
-      $routeProvider
-        .when("/", {
+      $stateProvider
+        .state("index", {
+          url: '/',
           templateUrl: "./partials/home.html",
           controller: "MainController",
           controllerAs: "main"
         })
-        .when("/plans", {
+        .state("plans", {
+          url: '/plans',
           templateUrl: "./partials/plans.html",
           controller: "PlanController",
           controllerAs: "plan"
         })
-        .when("/plans/:id", {
+        .state("plans.detail", {
+          url: '/plans/:id',
           templateUrl: "./partials/plan_details.html",
           controller: "PlanController",
           controllerAs: "plan"
         })
-        .otherwise({
-           redirectTo: '/'
-        })
-        .when("/signup", {
-          templateUrl: "./partials/signup.html",
+        .state("auth", {
+          abstract: true,
           controller: "MainController",
           controllerAs: "main"
         })
-        .when("/login", {
-          templateUrl: "./partials/login.html",
-          controller: "MainController",
-          controllerAs: "main"
+        .state("auth.login",{
+          url: '/auth/login',
+          templateUrl: "./partials/auth.html"
+        })
+        .state("auth.signup",{
+          url: '/auth/signup',
+          templateUrl: "./partials/auth.html"
         });
+      $urlRouterProvider.otherwise('/');
     }
   //Load controller
 
