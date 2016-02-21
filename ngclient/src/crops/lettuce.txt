@@ -34,6 +34,8 @@ DAY 71 - HARVEST LETTUCE
 
 name = Lettuce
 
+description = Lettuce (Lactuca sativa) is an annual plant of the daisy family Asteraceae. It is most often grown as a leaf vegetable, but sometimes for its stem and seeds.
+
 farm_size = S
 
 weather = Sunny

@@ -33,6 +33,8 @@ DAY 90 - HARVEST BEANS
 
 name = Beans
 
+description = Bean is a common name for large plant seeds of several genera of the family Fabaceae (alternately Leguminosae) which are used for human or animal food.
+
 farm_size = S
 
 weather = Sunny

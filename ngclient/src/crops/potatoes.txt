@@ -36,6 +36,8 @@ DAY 8 - WEED THE TRENCH(REPEAT EACH MONTH)
 
 name = Potato
 
+description = The potato is a starchy, tuberous crop from the perennial nightshade Solanum tuberosum L. The word "potato" may refer either to the plant itself or to the edible tuber.
+
 farm_size = S
 
 weather = Warm
