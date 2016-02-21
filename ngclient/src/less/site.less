@@ -1,0 +1,45 @@
+html, body {
+  height: 100%;
+}
+body {
+  appearance: none;
+  -moz-appearance: none; /* Firefox */
+  -webkit-appearance: none; /* Safari and Chrome */
+  font-family: @fontFamily_body;
+  font-size: @fontSize_base;
+  font-weight: @fontWeight_base;
+  color: @color_bodyText;
+
+  @media(max-width: @screen_medium) {
+    font-size: @fontSize_baseMedium;
+    font-weight: @fontWeight_baseMedium;
+  }
+
+  .navbar{
+    margin-bottom: 0;
+    padding: 15px;
+    background-color: fadeout(@color_navbarFill, 15%);
+  }
+  .navbar-header {
+    display: flex;
+    align-items: center;
+  }
+  .navbar-brand {
+    width: 170px;
+    height: auto;
+    padding: 0 15px;
+  }
+  .navbar-nav  {
+    text-transform: uppercase;
+  }
+
+}
+
+a, a:hover, a:active {
+  text-decoration: none;
+}
+
+@import "_variables";
+@import "_components";
+@import "_home";
+@import "_auth";

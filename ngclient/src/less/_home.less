@@ -1,0 +1,78 @@
+
+
+.hero {
+
+  margin-top: 80px;
+
+  .hero-slide {
+
+    .background {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      overflow: hidden;
+
+      .overlay {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: fadeout(#000, 60%);
+      }
+
+      .bg-img {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-attachment: fixed;
+      }
+    }
+
+    .content {
+      position: relative;
+      overflow: hidden;
+      padding: 200px 50px;
+      color: #fff;
+      text-align: center;
+
+      .title {
+        font-size: 5.0em;
+        font-weight: 900;
+        letter-spacing: -1px;
+      }
+      .subtitle {
+        font-size: 2em;
+        font-weight: 300;
+      }
+      .call-to-action {
+        margin-top: 50px;
+        .btn {
+          padding: 15px 50px;
+        }
+      }
+    }
+  }
+}
+
+.plan-list-header {
+  overflow: hidden;
+  padding: 50px 10%;
+  text-align: center;
+  background-color: @color_bodyAlt;
+
+  .title {
+    color: #5cb85c;
+    font-size: 5.0em;
+    font-weight: 900;
+    letter-spacing: -1px;
+  }
+  .subtitle {
+    font-size: 2em;
+    font-weight: 300;
+  }
+}
+
+.plan-list {
+  padding: 50px 5%;
+}

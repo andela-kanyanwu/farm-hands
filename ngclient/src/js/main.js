@@ -17,15 +17,25 @@
       // routes
       $routeProvider
         .when("/", {
-          templateUrl: "./partials/partial1.html",
+          templateUrl: "./partials/home.html",
           controller: "MainController",
           controllerAs: "main"
         })
         .otherwise({
            redirectTo: '/'
+        })
+        .when("/signup", {
+          templateUrl: "./partials/signup.html",
+          controller: "MainController",
+          controllerAs: "main"
+        })
+        .when("/login", {
+          templateUrl: "./partials/login.html",
+          controller: "MainController",
+          controllerAs: "main"
         });
     }
   //Load controller
-  
+
 
 }());
