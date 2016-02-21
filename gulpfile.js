@@ -13,17 +13,16 @@ var concat = require('gulp-concat');
 
 var less = require('gulp-less');
 var path = require('path');
-var lessInput = './ngclient/src/less/**/*.scss';
-var lessOutput = './ngclient/src/css';
-var lessOptions = {
-  paths: [ path.join(__dirname, 'less', 'includes') ],
-  plugins: [autoprefix, cleancss]
-};
+var lessInput = ['./ngclient/src/less/site.less'];
+var lessOutput = './ngclient/dist/css';
 var LessPluginCleanCSS = require('less-plugin-clean-css'),
     LessPluginAutoPrefix = require('less-plugin-autoprefix'),
     cleancss = new LessPluginCleanCSS({ advanced: true }),
     autoprefix = new LessPluginAutoPrefix({ browsers: ["last 2 versions"] });
-
+var lessOptions = {
+  paths: [ path.join(__dirname, 'less', 'includes') ],
+  plugins: [autoprefix, cleancss]
+};
 
 // tasks
 gulp.task('lint', function() {
@@ -57,16 +56,22 @@ gulp.task('copy-bower-components', function () {
   gulp.src('./ngclient/src/bower_components/**')
     .pipe(gulp.dest('./ngclient/dist/bower_components'));
 });
+gulp.task('copy-img-files', function () {
+  gulp.src(['./ngclient/src/img/*.*'])
+    .pipe(gulp.dest('./ngclient/dist/img'))
+    .pipe(connect.reload());
+});
 gulp.task('copy-html-files', function () {
   gulp.src(['./ngclient/src/**/*.html', './ngclient/src/*.html'])
     .pipe(gulp.dest('./ngclient/dist/'))
     .pipe(connect.reload());
 });
-
 gulp.task('watch', function(){
   gulp.watch(['./ngclient/src/**/*.html', './ngclient/src/*.html'], ['copy-html-files']);
+  gulp.watch(['./ngclient/src/img/*.*'], ['copy-img-files']);
   gulp.watch(['ngclient/src/js/main.js', 'ngclient/src/**/*.js'], ['browserify']);
   gulp.watch(['./ngclient/src/**/*.css', '!./ngclient/bower_components/**'], ['minify-css']);
+  gulp.watch('./ngclient/src/less/*.less', ['less-compile']);
 })
 gulp.task('connect', function () {
   connect.server({
@@ -104,18 +109,12 @@ gulp.task('less-compile', function () {
   return gulp
     .src(lessInput)
     .pipe(less(lessOptions))
-    .pipe(gulp.dest(lessOutput));
-});
-gulp.task('watch', function() {
-  return gulp
-    .watch(lessInput, ['less-compile'])
-    .on('change', function(event) {
-      console.log('File ' + event.path + ' was ' + event.type + ', running tasks...');
-    });
+    .pipe(gulp.dest(lessOutput))
+    .pipe(connect.reload());
 });
 
 // *** default task *** //
 
-gulp.task('default',['browserify','copy-html-files', 'minify-css', 'copy-bower-components', 'connect', 'less-compile', 'watch']);
+gulp.task('default',['browserify','copy-html-files', 'copy-img-files', 'minify-css', 'copy-bower-components', 'connect', 'less-compile', 'watch']);
 // *** build task *** //
 
