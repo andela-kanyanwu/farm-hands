@@ -47,7 +47,7 @@
         })
         .state("plans.detail", {
           url: '/plans/:id',
-          templateUrl: "partials/plan_details.html",
+          templateUrl: "partials/plan-details.html",
           controller: "PlanController",
           controllerAs: "plan"
         })
@@ -66,6 +66,5 @@
       $urlRouterProvider.otherwise('/');
     }
   //Load controller
-
 
 }());
