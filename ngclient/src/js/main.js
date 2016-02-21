@@ -29,7 +29,7 @@
           controllerAs: "plan"
         })
         .when("/plans/:id", {
-          templateUrl: "./plan_details.html",
+          templateUrl: "./partials/plan_details.html",
           controller: "PlanController",
           controllerAs: "plan"
         })
