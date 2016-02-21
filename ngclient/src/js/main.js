@@ -1,39 +1,68 @@
-(function () {
+(function() {
 
   'use strict';
   require('angular');
   require('angular-route');
   require('angular-animate');
-  var mainCtrl = require('./controllers/mainctrl');
+  require('angular-ui-router');
 
-  angular.module('SampleApp', ['ngRoute', 'ngAnimate'])
+  var mainCtrl = require('./controllers/mainctrl');
+  var planCtrl = require('./controllers/planctrl');
+  var planService = require('./services/plans');
+
+  angular.module('FarmHandsApp', ['ui.router', 'ngAnimate'])
 
   .config(configure)
-  .controller('MainController', mainCtrl);
+  .controller('MainController', mainCtrl)
+  .controller('PlanController', planCtrl)
+  .service('PlanService', planService);
 
-  configure.$inject = ['$locationProvider', '$routeProvider'];
-    function configure($locationProvider, $routeProvider) {
-      $locationProvider.hashPrefix('!');
+  configure.$inject = ['$locationProvider', '$urlRouterProvider', '$stateProvider'];
+    function configure($locationProvider, $urlRouterProvider, $stateProvider) {
+      $locationProvider.html5Mode(true).hashPrefix('!');
       // routes
-      $routeProvider
-        .when("/", {
+      $stateProvider
+        .state("index", {
+          url: '/',
+          resolve:{
+            plans: ['PlanService', function(PlanService){
+              return PlanService.all()
+                .then(function(resp) {
+                  return resp || 'error';
+              });
+
+            }]
+          },
           templateUrl: "./partials/home.html",
           controller: "MainController",
           controllerAs: "main"
         })
-        .otherwise({
-           redirectTo: '/'
+        .state("plans", {
+          url: '/plans',
+          templateUrl: "./partials/plans.html",
+          controller: "PlanController",
+          controllerAs: "plan"
         })
-        .when("/signup", {
-          templateUrl: "./partials/signup.html",
-          controller: "MainController",
-          controllerAs: "main"
+        .state("plans.detail", {
+          url: '/plans/:id',
+          templateUrl: "./partials/plan_details.html",
+          controller: "PlanController",
+          controllerAs: "plan"
         })
-        .when("/login", {
-          templateUrl: "./partials/login.html",
-          controller: "MainController",
-          controllerAs: "main"
+        .state("auth", {
+          abstract: true,
+          url:'/auth'
+          // template: '<ui-view/>'
+        })
+        .state("auth.login", {
+          url: '/login',
+          templateUrl: "./partials/login.html"
+        })
+        .state("auth.signup", {
+          url: '/signup',
+          templateUrl: "./partials/signup.html"
         });
+      $urlRouterProvider.otherwise('/');
     }
   //Load controller
 
