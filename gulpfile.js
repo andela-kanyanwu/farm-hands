@@ -96,17 +96,11 @@ gulp.task('connect', function () {
       port: 5556
     });
 });
-// gulp.task('connectDist', function () {
-//   connect.server({
-//     root: 'ngclient/dist/',
-//     port: 9999
-//   });
-// });
 gulp.task('browserify', function() {
   gulp.src(['ngclient/src/js/main.js'])
   .pipe(browserify({
     insertGlobals: true,
-    debug: true
+    debug: false
   }))
   .pipe(concat('bundled.js'))
   .pipe(gulp.dest('./ngclient/dist/js'))
