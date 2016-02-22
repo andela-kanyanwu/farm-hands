@@ -28,7 +28,9 @@
             plans: ['PlanService', function(PlanService){
               return PlanService.all()
                 .then(function(resp) {
-                  return resp || 'error';
+                  return resp
+              }, function(err){
+                return(err)
               });
 
             }]
@@ -50,18 +52,13 @@
           controllerAs: "plan"
         })
         .state("auth", {
-          abstract: true,
-          url:'/auth'
-          // template: '<ui-view/>'
-        })
-        .state("auth.login", {
-          url: '/login',
+          url:'/login',
           templateUrl: "./partials/login.html"
         })
-        .state("auth.signup", {
+        .state("signup", {
           url: '/signup',
           templateUrl: "./partials/signup.html"
-        });
+        })
       $urlRouterProvider.otherwise('/');
     }
   //Load controller
