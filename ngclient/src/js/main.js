@@ -39,14 +39,8 @@
           controller: "MainController",
           controllerAs: "main"
         })
-        .state("plans", {
-          url: '/plans',
-          templateUrl: "partials/plans.html",
-          controller: "PlanController",
-          controllerAs: "plan"
-        })
-        .state("plans.detail", {
-          url: '/plans/:id',
+        .state("plan", {
+          url: '/plans/{id:int}',
           templateUrl: "partials/plan-details.html",
           controller: "PlanController",
           controllerAs: "plan"
