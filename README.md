@@ -33,3 +33,9 @@ DATABASES = {
 }
 
 ```
+
+### Run server
+To run your server
+```
+gunicorn farmhands.wsgi --pythonpath=farmhands --log-file=-
+```
