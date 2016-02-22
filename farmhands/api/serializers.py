@@ -34,11 +34,14 @@ class CropSerializer(serializers.ModelSerializer):
 class PlanSerializer(serializers.ModelSerializer):
     users = UserSerializer(many=True)
     schedule = serializers.ReadOnlyField(source='schedule.plan')
-    crop = serializers.SlugRelatedField(
-        many=True,
-        read_only=True,
-        slug_field='name'
-    )
+    # serializers.PrimaryKeyRelatedField(many=True, queryset=Bucketlist.objects.all()
+    # crop = serializers.PrimaryKeyRelatedField(
+    #     # many=True,
+    #     read_only=True,
+    #     # slug_field='name',
+    #     # queryset=Crop.objects.all()
+    # )
+    crop = CropSerializer(read_only=True)
 
     class Meta:
         model = Plan
