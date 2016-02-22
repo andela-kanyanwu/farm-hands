@@ -43,7 +43,8 @@ INSTALLED_APPS = (
     'social.apps.django_app.default',
     'rest_framework_social_oauth2',
     'corsheaders',
-    'rest_framework.authtoken'
+    'rest_framework.authtoken',
+    'tinymce'
 )
 
 MIDDLEWARE_CLASSES = (

@@ -4,6 +4,7 @@ from django.conf import settings
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 from rest_framework.authtoken.models import Token
+from tinymce.models import HTMLField
 
 
 class Crop(models.Model):
@@ -62,7 +63,8 @@ class Plan(models.Model):
     )
 
     name = models.CharField(max_length=200)
-    description = models.TextField(blank=True)
+    # description = models.TextField(blank=True)
+    description = HTMLField()
     crop = models.ForeignKey(Crop, related_name='plan')
     farm_size = models.CharField(max_length=30, choices=FARM_SIZES)
     budget = models.DecimalField(max_digits=8, decimal_places=2)
