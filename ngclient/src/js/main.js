@@ -11,11 +11,8 @@
   var planCtrl = require('./controllers/planctrl');
   var authCtrl = require('./controllers/authctrl');
   var planService = require('./services/plans');
-<<<<<<< 72080643bea7c1fcdb151431bfb17bb6d2919653
   var googleAuth = require('./services/googleprovider');
-=======
   var durationFilter = require('./filters/momentFilter');
->>>>>>> [Feature] update home page
 
   angular.module('FarmHandsApp', ['ui.router', 'ngAnimate'])
 
