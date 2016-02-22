@@ -1,7 +1,7 @@
 module.exports = planCtrl;
-function planCtrl($log) {
+function planCtrl($log, planDetail) {
   var vm = this;
-  vm.test = "Testing...";
-  $log.debug(vm.test, 'plans');
+  vm.detail = planDetail.data;
+  $log.debug(vm.detail);
 }
-planCtrl.$inject = ['$log'];
+planCtrl.$inject = ['$log', 'planDetail'];

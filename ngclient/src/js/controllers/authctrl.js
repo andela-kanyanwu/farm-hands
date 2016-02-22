@@ -7,7 +7,5 @@ function authCtrl($log, google, $rootScope, $state) {
         $state.go('index');
     })
   }
-  vm.test = "Testing...";
-  $log.debug(vm.test, 'auth');
 }
 authCtrl.$inject = ['$log', 'google', '$rootScope', '$state'];

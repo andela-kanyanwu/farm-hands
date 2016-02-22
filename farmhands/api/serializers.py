@@ -40,7 +40,7 @@ class PlanSerializer(serializers.ModelSerializer):
         model = Plan
         fields = (
             'id', 'name', 'farm_size', 'crop', 'budget',
-            'duration', 'date_created', 'users',
+            'duration', 'date_created', 'users', 'description',
             'schedule'
         )
 

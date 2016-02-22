@@ -58,7 +58,18 @@
           url: '/plans/{id:int}',
           templateUrl: "partials/plan_details.html",
           controller: "PlanController",
-          controllerAs: "plan"
+          controllerAs: "plan",
+          resolve:{
+            planDetail: ['PlanService', '$stateParams', function(PlanService, $stateParams){
+              return PlanService.find($stateParams.id)
+                .then(function(resp) {
+                  return resp
+              }, function(err){
+                return(err)
+              });
+
+            }]
+          }
         })
         .state("login", {
           url: '/login',

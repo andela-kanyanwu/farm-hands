@@ -93,7 +93,7 @@ gulp.task('connect', function () {
         middleware: [ historyApiFallback() ]
       },
 
-      port: 5555
+      port: 5556
     });
 });
 // gulp.task('connectDist', function () {
