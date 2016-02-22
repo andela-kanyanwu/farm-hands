@@ -30,7 +30,9 @@
             plans: ['PlanService', function(PlanService){
               return PlanService.all()
                 .then(function(resp) {
-                  return resp || 'error';
+                  return resp
+              }, function(err){
+                return(err)
               });
 
             }]
@@ -63,7 +65,6 @@
           controller: "AuthController",
           controllerAs: "auth"
         });
-      $urlRouterProvider.otherwise('/');
     }
   //Load controller
 

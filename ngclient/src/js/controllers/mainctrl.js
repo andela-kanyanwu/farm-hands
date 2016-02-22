@@ -2,6 +2,7 @@ module.exports = mainCtrl;
 function mainCtrl($log, plans) {
 
   var vm = this;
+  $log(vm.plans);
   vm.plans = plans
   //vm.plans = plans;
   $log.debug('tested..')

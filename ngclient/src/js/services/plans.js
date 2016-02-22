@@ -7,12 +7,11 @@ function PlanService($http, $q) {
         $http.get('http://localhost:8000/api/v1/plans').then(function(res){
             deffered.resolve(res);
         }, function(err){
-            deffered.reject('errors');
+            deffered.reject(err);
         });
 
         return deffered.promise;
     }
 
 }
-
 PlanService.$inject = ['$http', '$q'];
