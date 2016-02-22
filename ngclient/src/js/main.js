@@ -8,6 +8,7 @@
 
   var mainCtrl = require('./controllers/mainctrl');
   var planCtrl = require('./controllers/planctrl');
+  var authCtrl = require('./controllers/authctrl');
   var planService = require('./services/plans');
 
   angular.module('FarmHandsApp', ['ui.router', 'ngAnimate'])
@@ -15,6 +16,7 @@
   .config(configure)
   .controller('MainController', mainCtrl)
   .controller('PlanController', planCtrl)
+  .controller('AuthController', authCtrl)
   .service('PlanService', planService);
 
   configure.$inject = ['$locationProvider', '$urlRouterProvider', '$stateProvider'];
@@ -35,31 +37,34 @@
 
             }]
           },
-          templateUrl: "./partials/home.html",
+          templateUrl: "partials/home.html",
           controller: "MainController",
           controllerAs: "main"
         })
         .state("plans", {
           url: '/plans',
-          templateUrl: "./partials/plans.html",
+          templateUrl: "partials/plans.html",
           controller: "PlanController",
           controllerAs: "plan"
         })
         .state("plans.detail", {
           url: '/plans/:id',
-          templateUrl: "./partials/plan_details.html",
+          templateUrl: "partials/plan_details.html",
           controller: "PlanController",
           controllerAs: "plan"
         })
-        .state("auth", {
-          url:'/login',
-          templateUrl: "./partials/login.html"
+        .state("login", {
+          url: '/login',
+          templateUrl: "partials/login.html",
+          controller: "AuthController",
+          controllerAs: "auth"
         })
         .state("signup", {
           url: '/signup',
-          templateUrl: "./partials/signup.html"
-        })
-      $urlRouterProvider.otherwise('/');
+          templateUrl: "partials/signup.html",
+          controller: "AuthController",
+          controllerAs: "auth"
+        });
     }
   //Load controller
 

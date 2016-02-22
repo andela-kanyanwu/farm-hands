@@ -2,8 +2,11 @@ module.exports = mainCtrl;
 function mainCtrl($log, plans) {
 
   var vm = this;
-  vm.plans = plans || [];
-  console.log(vm.plans);
+  $log(vm.plans);
+  vm.plans = plans
+  //vm.plans = plans;
+  $log.debug('tested..')
+  $log.debug(vm.plans);
   vm.test = "Testing...";
   vm.scrollToFinder = scrollToFinder;
 

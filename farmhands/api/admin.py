@@ -17,7 +17,7 @@ class ScheduleInline(admin.TabularInline):
 
 class PlanAdmin(admin.ModelAdmin):
     fieldsets = [
-        (None, {'fields': ['name']}),
+        (None, {'fields': ['name', 'crop', 'description']}),
         ('Plan Information', {'fields': [
          'farm_size', 'budget', 'duration']}),
         ('Users', {'fields': ['users']}),
