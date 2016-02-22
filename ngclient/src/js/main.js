@@ -6,6 +6,7 @@
   require('angular-animate');
   require('angular-ui-router');
 
+  var moment = require('moment');
   var mainCtrl = require('./controllers/mainctrl');
   var planCtrl = require('./controllers/planctrl');
   var authCtrl = require('./controllers/authctrl');
