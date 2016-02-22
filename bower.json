@@ -22,6 +22,7 @@
     "bootstrap": "~3.2.0",
     "fontawesome": "~4.1.0",
     "jshint": "^2.9.1",
-    "angular-ui-router": "^0.2.18"
+    "angular-ui-router": "^0.2.18",
+    "moment": "^2.11.2"
   }
 }

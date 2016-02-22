@@ -34,19 +34,12 @@ class CropSerializer(serializers.ModelSerializer):
 class PlanSerializer(serializers.ModelSerializer):
     users = UserSerializer(many=True)
     schedule = serializers.ReadOnlyField(source='schedule.plan')
-    # serializers.PrimaryKeyRelatedField(many=True, queryset=Bucketlist.objects.all()
-    # crop = serializers.PrimaryKeyRelatedField(
-    #     # many=True,
-    #     read_only=True,
-    #     # slug_field='name',
-    #     # queryset=Crop.objects.all()
-    # )
     crop = CropSerializer(read_only=True)
 
     class Meta:
         model = Plan
         fields = (
-            'name', 'farm_size', 'crop', 'budget',
+            'id', 'name', 'farm_size', 'crop', 'budget',
             'duration', 'date_created', 'users',
             'schedule'
         )

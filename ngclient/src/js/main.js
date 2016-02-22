@@ -5,12 +5,17 @@
   require('angular-route');
   require('angular-animate');
   require('angular-ui-router');
+  var moment = require('moment-twitter');
 
   var mainCtrl = require('./controllers/mainctrl');
   var planCtrl = require('./controllers/planctrl');
   var authCtrl = require('./controllers/authctrl');
   var planService = require('./services/plans');
+<<<<<<< 72080643bea7c1fcdb151431bfb17bb6d2919653
   var googleAuth = require('./services/googleprovider');
+=======
+  var durationFilter = require('./filters/momentFilter');
+>>>>>>> [Feature] update home page
 
   angular.module('FarmHandsApp', ['ui.router', 'ngAnimate'])
 
@@ -19,6 +24,7 @@
   .controller('MainController', mainCtrl)
   .controller('PlanController', planCtrl)
   .controller('AuthController', authCtrl)
+  .filter('durationFilter', durationFilter)
   .service('PlanService', planService)
   .provider('google', googleAuth);
   runBlock.$inject = ['google'];
@@ -51,14 +57,8 @@
           controller: "MainController",
           controllerAs: "main"
         })
-        .state("plans", {
-          url: '/plans',
-          templateUrl: "partials/plans.html",
-          controller: "PlanController",
-          controllerAs: "plan"
-        })
-        .state("plans.detail", {
-          url: '/plans/:id',
+        .state("plan", {
+          url: '/plans/{id:int}',
           templateUrl: "partials/plan_details.html",
           controller: "PlanController",
           controllerAs: "plan"
@@ -80,6 +80,5 @@
       $urlRouterProvider.otherwise('/');
     }
   //Load controller
-
 
 }());
