@@ -1,7 +1,3 @@
-"""
-Models for farmhands api
-"""
-
 from django.db import models
 from django.contrib.auth.models import User
 
@@ -45,9 +41,12 @@ class Crop(models.Model):
     crop_categories = models.CharField(max_length=30, choices=CROP_CATEGORIES)
     life_cycle = models.CharField(max_length=30, choices=LIFE_CYCLE)
     price = models.DecimalField(max_digits=8, decimal_places=2)
-    desc = models.CharField(max_length=200)
+    desc = models.TextField(blank=True)
     date_created = models.DateTimeField(
         auto_now_add=True, blank=True, verbose_name='created')
+
+    def __str__(self):
+        return '%s' % (self.name)
 
 
 class Plan(models.Model):
@@ -68,6 +67,9 @@ class Plan(models.Model):
         auto_now_add=True, blank=True, verbose_name='created')
     users = models.ManyToManyField(User, blank=True)
 
+    def __str__(self):
+        return '%s' % (self.name)
+
 
 class Schedule(models.Model):
 
@@ -84,9 +86,15 @@ class Schedule(models.Model):
     cycle_type = models.CharField(max_length=30, choices=CYCLE_TYPE)
     desc = models.CharField(max_length=200)
 
+    def __str__(self):
+        return '%s' % (self.plan)
+
 
 class UserProfile(models.Model):
     user = models.OneToOneField(User)
     google_id = models.CharField(max_length=200, null=True, blank=True)
     date_created = models.DateTimeField(
         auto_now_add=True, blank=True, verbose_name='created')
+
+    def __str__(self):
+        return '%s' % (self.user)
