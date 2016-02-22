@@ -5,7 +5,6 @@
   require('angular-route');
   require('angular-animate');
   require('angular-ui-router');
-  var moment = require('moment-twitter');
 
   var mainCtrl = require('./controllers/mainctrl');
   var planCtrl = require('./controllers/planctrl');
