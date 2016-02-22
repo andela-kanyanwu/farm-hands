@@ -4,8 +4,8 @@ function mainCtrl($log, plans) {
   var vm = this;
   vm.plans = plans
   //vm.plans = plans;
-  console.log('tested..')
-  console.log(vm.plans);
+  $log.debug('tested..')
+  $log.debug(vm.plans);
   vm.test = "Testing...";
   vm.scrollToFinder = scrollToFinder;
 
