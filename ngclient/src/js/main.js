@@ -10,18 +10,28 @@
   var planCtrl = require('./controllers/planctrl');
   var authCtrl = require('./controllers/authctrl');
   var planService = require('./services/plans');
+  var googleAuth = require('./services/googleprovider');
 
   angular.module('FarmHandsApp', ['ui.router', 'ngAnimate'])
 
+  .run(runBlock)
   .config(configure)
   .controller('MainController', mainCtrl)
   .controller('PlanController', planCtrl)
   .controller('AuthController', authCtrl)
-  .service('PlanService', planService);
-
-  configure.$inject = ['$locationProvider', '$urlRouterProvider', '$stateProvider'];
-    function configure($locationProvider, $urlRouterProvider, $stateProvider) {
+  .service('PlanService', planService)
+  .provider('google', googleAuth);
+  runBlock.$inject = ['google'];
+  function runBlock(google){
+    google.init();
+  }
+  configure.$inject = ['$locationProvider', '$urlRouterProvider', '$stateProvider', 'googleProvider'];
+    function configure($locationProvider, $urlRouterProvider, $stateProvider, googleProvider) {
       $locationProvider.html5Mode(true).hashPrefix('!');
+      googleProvider.setAppConfig(
+    {
+      CLIENTID: '570959447139-guockv674o8tblvqml4h3ukq61rv9kqk.apps.googleusercontent.com'
+    });
       // routes
       $stateProvider
         .state("index", {
