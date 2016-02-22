@@ -2,13 +2,18 @@ module.exports = mainCtrl;
 function mainCtrl($log, plans) {
 
   var vm = this;
-  $log(vm.plans);
-  vm.plans = plans
-  //vm.plans = plans;
-  $log.debug('tested..')
-  $log.debug(vm.plans);
-  vm.test = "Testing...";
+  vm.plans = plans;
   vm.scrollToFinder = scrollToFinder;
+  vm.mapFarmSize = mapFarmSize;
+
+  function mapFarmSize(farmSize) {
+    var farmSizes = {
+      'S': 'Small',
+      'M': 'Medium',
+      'L': 'Large'
+    };
+    return farmSizes[farmSize];
+  }
 
   function scrollToFinder() {
 	var $sel = angular.element;
@@ -17,7 +22,5 @@ function mainCtrl($log, plans) {
 	}, 2000);
   }
 
-  $log.debug("required!");
-  $log.debug(vm.test, 'something else');
 }
 mainCtrl.$inject = ['$log', 'plans'];
