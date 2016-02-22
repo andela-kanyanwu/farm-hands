@@ -65,6 +65,9 @@
           controller: "AuthController",
           controllerAs: "auth"
         });
+
+
+      $urlRouterProvider.otherwise('/');
     }
   //Load controller
 
